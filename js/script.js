@@ -2,26 +2,55 @@ document.addEventListener('DOMContentLoaded', () => {
 	// GSAP 플러그인 등록
 	gsap.registerPlugin(TextPlugin);
 
-	const nameSlideLi = gsap.utils.toArray('.name-slider .swiper-slide');
-	nameSlideLi.forEach((slide, index) => {
-		gsap.from(slide, {
-			opacity: 0,
-			y: 50,
-			delay: index * 0.05,
-			duration: 0.6,
-			ease: 'power2.out',
-		});
-	});
-
-	// 커서 애니메이션
+	// DOM 요소 선택
 	const cursor = document.querySelector('#cursor');
+	const nameSliderArea = document.querySelector('.name-slider');
+	const nameSliderWrapper = document.querySelector(
+		'.name-slider .swiper-wrapper'
+	);
+	const picSliderWrapper = document.querySelector(
+		'.pic-slider .swiper-wrapper'
+	);
+
+	// 텍스트 추출 함수
+	const getSlideText = (slide) => {
+		return slide.querySelector('p').textContent;
+	};
+
+	// 텍스트 애니메이션 함수
+	const animateText = (text) => {
+		gsap.to('.title', {
+			duration: 0.5,
+			text: {
+				value: text,
+				delimiter: '',
+			},
+			ease: 'none',
+		});
+	};
+
+	// 슬라이드 요소들을 랜덤하게 섞는 함수
+	const shuffleSlides = () => {
+		const nameSlides = Array.from(nameSliderWrapper.children);
+		const picSlides = Array.from(picSliderWrapper.children);
+
+		// 같은 랜덤 순서를 두 슬라이더에 적용
+		const randomOrder = [...Array(nameSlides.length).keys()].sort(
+			() => Math.random() - 0.5
+		);
+
+		// 슬라이드 재정렬
+		randomOrder.forEach((index) => {
+			nameSliderWrapper.appendChild(nameSlides[index]);
+			picSliderWrapper.appendChild(picSlides[index]);
+		});
+	};
+
+	// 커서 애니메이션 변수
 	let mouseX = 0;
 	let mouseY = 0;
 	let cursorX = 0;
 	let cursorY = 0;
-
-	// nameSlider 영역
-	const nameSliderArea = document.querySelector('.name-slider');
 
 	// nameSlider 영역 마우스 이벤트
 	nameSliderArea.addEventListener('mouseenter', () => {
@@ -54,49 +83,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	// GSAP 애니메이션
 	gsap.ticker.add(() => {
-		// 부드러운 이동을 위한 보간 (값이 작을수록 더 부드러움)
 		cursorX += (mouseX - cursorX) * 0.05;
 		cursorY += (mouseY - cursorY) * 0.05;
 
-		// 커서 위치 업데이트
 		gsap.set(cursor, {
 			x: cursorX - cursor.offsetWidth / 2,
 			y: cursorY - cursor.offsetHeight / 2,
 		});
 	});
 
-	// 슬라이드 요소들을 랜덤하게 섞는 함수
-	const shuffleSlides = () => {
-		const nameSlides = Array.from(
-			document.querySelector('.name-slider .swiper-wrapper').children
-		);
-		const picSlides = Array.from(
-			document.querySelector('.pic-slider .swiper-wrapper').children
-		);
-
-		// 같은 랜덤 순서를 두 슬라이더에 적용
-		const randomOrder = [...Array(nameSlides.length).keys()].sort(
-			() => Math.random() - 0.5
-		);
-
-		// name-slider 재정렬
-		randomOrder.forEach((index) => {
-			document
-				.querySelector('.name-slider .swiper-wrapper')
-				.appendChild(nameSlides[index]);
-		});
-
-		// pic-slider 재정렬 (같은 순서로)
-		randomOrder.forEach((index) => {
-			document
-				.querySelector('.pic-slider .swiper-wrapper')
-				.appendChild(picSlides[index]);
-		});
-	};
-
 	// 슬라이드 섞기 실행
 	shuffleSlides();
 
+	// Swiper 초기화
 	const nameSlider = new Swiper('.name-slider', {
 		loop: true,
 		slidesPerView: 'auto',
@@ -117,34 +116,10 @@ document.addEventListener('DOMContentLoaded', () => {
 		},
 	});
 
-	// 텍스트 애니메이션 함수
-	const animateText = (text) => {
-		gsap.to('.title', {
-			duration: 0.5,
-			text: {
-				value: text,
-				delimiter: '',
-			},
-			ease: 'none',
-		});
-	};
-
-	// 타이틀 갱신 함수
-	const updateTitle = () => {
-		const activeSlide = document.querySelector(
-			'.name-slider .swiper-slide-active'
-		);
-		if (activeSlide) {
-			const nameText = activeSlide.querySelector('p').textContent;
-			animateText(nameText);
-		}
-	};
-
 	// 슬라이드 변경 이벤트 처리
 	picSlider.on('slideChange', () => {
 		const activeIndex = picSlider.realIndex;
-		const nameText =
-			nameSlider.slides[activeIndex].querySelector('p').textContent;
+		const nameText = getSlideText(nameSlider.slides[activeIndex]);
 		animateText(nameText);
 	});
 
@@ -153,16 +128,14 @@ document.addEventListener('DOMContentLoaded', () => {
 		'.name-slider .swiper-slide-active'
 	);
 	if (initialActiveSlide) {
-		const initialText = initialActiveSlide.querySelector('p').textContent;
-		animateText(initialText);
+		animateText(getSlideText(initialActiveSlide));
 	}
 
 	// name-slider 클릭 이벤트 처리
-	document.querySelector('.name-slider').addEventListener('click', (e) => {
+	nameSliderArea.addEventListener('click', (e) => {
 		const clickedSlide = e.target.closest('.swiper-slide');
 		if (clickedSlide) {
-			const nameText = clickedSlide.querySelector('p').textContent;
-			animateText(nameText);
+			animateText(getSlideText(clickedSlide));
 		}
 	});
 });
