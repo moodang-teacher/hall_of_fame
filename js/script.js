@@ -2,6 +2,17 @@ document.addEventListener('DOMContentLoaded', () => {
 	// GSAP 플러그인 등록
 	gsap.registerPlugin(TextPlugin);
 
+	const nameSlideLi = gsap.utils.toArray('.name-slider .swiper-slide');
+	nameSlideLi.forEach((slide, index) => {
+		gsap.from(slide, {
+			opacity: 0,
+			y: 50,
+			delay: index * 0.05,
+			duration: 0.6,
+			ease: 'power2.out',
+		});
+	});
+
 	// 커서 애니메이션
 	const cursor = document.querySelector('#cursor');
 	let mouseX = 0;
@@ -14,13 +25,25 @@ document.addEventListener('DOMContentLoaded', () => {
 
 	// nameSlider 영역 마우스 이벤트
 	nameSliderArea.addEventListener('mouseenter', () => {
-		cursor.style.backgroundColor = 'rgba(71, 101, 11, 0.6)';
-		cursor.textContent = 'WHEEL';
+		gsap.to(cursor, {
+			duration: 0.8,
+			backgroundColor: 'rgba(71, 101, 11, 0.6)',
+			width: 200,
+			height: 100,
+			textContent: 'WHEEL || CLICK',
+			ease: 'elastic.out(1,0.3)',
+		});
 	});
 
 	nameSliderArea.addEventListener('mouseleave', () => {
-		cursor.style.backgroundColor = 'rgba(11, 28, 101, 0.6)';
-		cursor.textContent = 'VIEW';
+		gsap.to(cursor, {
+			duration: 0.3,
+			backgroundColor: 'rgba(11, 28, 101, 0.6)',
+			width: 120,
+			height: 120,
+			textContent: 'VIEW',
+			ease: 'power2.out',
+		});
 	});
 
 	// 마우스 이동 이벤트
@@ -81,6 +104,19 @@ document.addEventListener('DOMContentLoaded', () => {
 		spaceBetween: 2,
 	});
 
+	const picSlider = new Swiper('.pic-slider', {
+		loop: true,
+		slidesPerView: 1,
+		autoplay: {
+			delay: 5000,
+		},
+		effect: 'fade',
+		speed: 1600,
+		thumbs: {
+			swiper: nameSlider,
+		},
+	});
+
 	// 텍스트 애니메이션 함수
 	const animateText = (text) => {
 		gsap.to('.title', {
@@ -103,19 +139,6 @@ document.addEventListener('DOMContentLoaded', () => {
 			animateText(nameText);
 		}
 	};
-
-	const picSlider = new Swiper('.pic-slider', {
-		loop: true,
-		slidesPerView: 1,
-		autoplay: {
-			delay: 5000,
-		},
-		effect: 'fade',
-		speed: 1600,
-		thumbs: {
-			swiper: nameSlider,
-		},
-	});
 
 	// 슬라이드 변경 이벤트 처리
 	picSlider.on('slideChange', () => {
