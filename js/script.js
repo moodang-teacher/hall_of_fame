@@ -8,6 +8,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const nameSliderWrapper = document.querySelector('.name-slider .swiper-wrapper');
     const picSliderWrapper = document.querySelector('.pic-slider .swiper-wrapper');
 
+    const nameSliderLi = gsap.utils.toArray('.name-slider .swiper-slide');
+    nameSliderLi.forEach((li, index) => {
+        gsap.from(li, {
+            opacity: 0,
+            y: 50,
+            duration: 0.6,
+            delay: index * 0.04,
+            ease: 'none',
+        });
+    });
+
     // 텍스트 추출 함수
     const getSlideText = (slide) => {
         return slide.querySelector('p').textContent;
