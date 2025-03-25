@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // 텍스트 애니메이션 함수
     const animateText = (text) => {
         gsap.to('.title', {
-            duration: 0.5,
+            duration: 0.2,
             text: {
                 value: text,
                 delimiter: '',
@@ -115,13 +115,13 @@ document.addEventListener('DOMContentLoaded', () => {
             delay: 5000,
         },
         effect: 'fade',
-        speed: 1600,
+        speed: 800,
         thumbs: {
             swiper: nameSlider,
         },
     });
 
-    // 슬라이드 변경 이벤트 처리
+    // slideChange 이벤트로 다시 변경
     picSlider.on('slideChange', () => {
         const activeIndex = picSlider.realIndex;
         const nameText = getSlideText(nameSlider.slides[activeIndex]);
