@@ -86,6 +86,8 @@ document.addEventListener('DOMContentLoaded', () => {
         loop: true,
         slidesPerView: 'auto',
         spaceBetween: 2,
+        simulateTouch: true, // 터치 기능 활성화
+        allowTouchMove: false, // 드래그 동작 비활성화
     });
 
     const picSlider = new Swiper('.pic-slider', {
