@@ -57,9 +57,9 @@ document.addEventListener('DOMContentLoaded', () => {
         gsap.to(cursor, {
             duration: 0.3,
             backgroundColor: 'rgba(11, 28, 101, 0.6)',
-            width: 120,
-            height: 120,
-            textContent: 'VIEW',
+            width: 180,
+            height: 100,
+            textContent: 'VIEW or DRAG',
             ease: 'power2.out',
         });
     });
@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Swiper 초기화
     const nameSlider = new Swiper('.name-slider', {
-        loop: true,
+        // loop: true,
         slidesPerView: 'auto',
         spaceBetween: 2,
         simulateTouch: true, // 터치 기능 활성화

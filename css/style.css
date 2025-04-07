@@ -209,8 +209,8 @@ body {
     left: 0;
     z-index: 11;
     pointer-events: none;
-    width: 120px;
-    height: 120px;
+    width: 180px;
+    height: 100px;
     background: rgba(11, 28, 101, 0.6);
     border-radius: 50%;
     backdrop-filter: blur(10px);
