@@ -9,6 +9,12 @@
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
         <link rel="stylesheet" href="./css/style.css" />
 
+        <style>
+            .name-slider .swiper-slide {
+                width: calc(100% / 8);
+            }
+        </style>
+
         <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/TextPlugin.min.js"></script>
@@ -19,12 +25,22 @@
         <div id="cursor">VIEW</div>
         <div id="noise-bg"></div>
         <div class="container">
-            <h1>The Hall of Fame</h1>
+            <div class="title-section">
+                <h1>The Hall of Fame</h1>
+                <ul class="nav">
+                    <li><a href="index.html" class="active">하이미디어 4기</a></li>
+                    <li><a href="hi3.html">하이미디어 3기</a></li>
+                    <li><a href="hi2.html">하이미디어 2기</a></li>
+                    <li><a href="hi1.html">하이미디어 1기</a></li>
+                    <li><a href="reve4.html">레브아트 4기</a></li>
+                    <li><a href="reve3.html">레브아트 3기</a></li>
+                </ul>
+            </div>
             <h2 class="title"></h2>
 
             <div class="swiper pic-slider">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide">
+                    <!-- <div class="swiper-slide">
                         <a
                             href="https://moodang-teacher.github.io/my-fingers/hi-1st/kimkiyoung/"
                             target="_blank"
@@ -324,7 +340,7 @@
                             rel="noopener noreferrer"
                             ><img src="./img/shinjieun.webp" alt="지은"
                         /></a>
-                    </div>
+                    </div> -->
                     <div class="swiper-slide">
                         <a
                             href="https://moodang-teacher.github.io/my-fingers/hi-4th/hongjiwon"
@@ -394,7 +410,7 @@
 
             <div class="swiper name-slider">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide">
+                    <!-- <div class="swiper-slide">
                         <p>kimkiyoung</p>
                     </div>
                     <div class="swiper-slide">
@@ -496,7 +512,7 @@
                     </div>
                     <div class="swiper-slide">
                         <p>shinjieun</p>
-                    </div>
+                    </div> -->
                     <div class="swiper-slide">
                         <p>hongjiwon</p>
                     </div>
