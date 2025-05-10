@@ -1,148 +1,126 @@
 <!DOCTYPE html>
 <html lang="ko">
-    <head>
-        <meta charset="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <title>여기는 명예의 전당</title>
-        <link rel="shortcut icon" href="moodang.webp" type="image/x-icon" />
 
-        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-        <link rel="stylesheet" href="./css/style.css" />
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>여기는 명예의 전당</title>
+    <link rel="shortcut icon" href="moodang.png" type="image/x-icon" />
 
-        <style>
-            .name-slider .swiper-slide {
-                width: calc(100% / 8);
-            }
-        </style>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="./css/style.css" />
 
-        <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/TextPlugin.min.js"></script>
-        <script src="./js/script.js"></script>
-    </head>
+    <style>
+        .name-slider .swiper-slide {
+            width: calc(100% / 8);
+        }
+    </style>
 
-    <body>
-        <div id="cursor">VIEW or DRAG</div>
-        <div id="noise-bg"></div>
-        <div class="container">
-            <div class="title-section">
-                <h1>The Hall of Fame</h1>
-                <ul class="nav">
-                    <li><a href="index.html">하이미디어 4기</a></li>
-                    <li><a href="hi3.html">하이미디어 3기</a></li>
-                    <li><a href="hi2.html">하이미디어 2기</a></li>
-                    <li><a href="hi1.html" class="active">하이미디어 1기</a></li>
-                    <li><a href="reve4.html">레브아트 4기</a></li>
-                    <li><a href="reve3.html">레브아트 3기</a></li>
-                </ul>
-            </div>
-            <h2 class="title"></h2>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/TextPlugin.min.js"></script>
+    <script src="./js/script.js"></script>
+</head>
 
-            <div class="swiper pic-slider">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <a
-                            href="https://moodang-teacher.github.io/my-fingers/hi-1st/kimkiyoung/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            <img src="./img/kimkiyoung.webp" alt="기영" />
-                        </a>
-                    </div>
-                    <div class="swiper-slide">
-                        <a
-                            href="https://moodang-teacher.github.io/my-fingers/hi-1st/kimsehee/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            <img src="./img/kimsehee.webp" alt="세희" />
-                        </a>
-                    </div>
-                    <div class="swiper-slide">
-                        <a
-                            href="https://moodang-teacher.github.io/my-fingers/hi-1st/kimyeojin/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            <img src="./img/kimyeojin.webp" alt="여진" />
-                        </a>
-                    </div>
-                    <div class="swiper-slide">
-                        <a
-                            href="https://moodang-teacher.github.io/my-fingers/hi-1st/leeyunhee/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            <img src="./img/leeyunhee.webp" alt="윤희" />
-                        </a>
-                    </div>
-                    <div class="swiper-slide">
-                        <a
-                            href="https://moodang-teacher.github.io/my-fingers/hi-1st/parkhana/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            <img src="./img/parkhana.webp" alt="하나" />
-                        </a>
-                    </div>
-                    <div class="swiper-slide">
-                        <a
-                            href="https://moodang-teacher.github.io/my-fingers/hi-1st/parkinjung/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            <img src="./img/parkinjung.webp" alt="인정" />
-                        </a>
-                    </div>
-                    <div class="swiper-slide">
-                        <a
-                            href="https://moodang-teacher.github.io/my-fingers/hi-1st/parkyoungmin/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            <img src="./img/parkyoungmin.webp" alt="영민" />
-                        </a>
-                    </div>
-                    <div class="swiper-slide">
-                        <a
-                            href="https://moodang-teacher.github.io/my-fingers/hi-1st/seoseongeun/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                        >
-                            <img src="./img/seoseongeun.webp" alt="성은" />
-                        </a>
-                    </div>
+<body>
+    <div id="cursor">VIEW or DRAG</div>
+    <div id="noise-bg"></div>
+    <div class="container">
+        <div class="title-section">
+            <h1>The Hall of Fame</h1>
+            <ul class="nav">
+                <li><a href="index.html">하이미디어 4기</a></li>
+                <li><a href="hi3.html">하이미디어 3기</a></li>
+                <li><a href="hi2.html">하이미디어 2기</a></li>
+                <li><a href="hi1.html" class="active">하이미디어 1기</a></li>
+                <li><a href="reve4.html">레브아트 4기</a></li>
+                <li><a href="reve3.html">레브아트 3기</a></li>
+            </ul>
+        </div>
+        <h2 class="title"></h2>
+
+        <div class="swiper pic-slider">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <a href="https://moodang-teacher.github.io/my-fingers/hi-1st/kimkiyoung/" target="_blank"
+                        rel="noopener noreferrer">
+                        <img src="./img/kimkiyoung.webp" alt="기영" />
+                    </a>
                 </div>
-            </div>
-
-            <div class="swiper name-slider">
-                <div class="swiper-wrapper">
-                    <div class="swiper-slide">
-                        <p>kimkiyoung</p>
-                    </div>
-                    <div class="swiper-slide">
-                        <p>kimsehee</p>
-                    </div>
-                    <div class="swiper-slide">
-                        <p>kimyeojin</p>
-                    </div>
-                    <div class="swiper-slide">
-                        <p>leeyunhee</p>
-                    </div>
-                    <div class="swiper-slide">
-                        <p>parkhana</p>
-                    </div>
-                    <div class="swiper-slide">
-                        <p>parkinjung</p>
-                    </div>
-                    <div class="swiper-slide">
-                        <p>parkyoungmin</p>
-                    </div>
-                    <div class="swiper-slide">
-                        <p>seoseongeun</p>
-                    </div>
+                <div class="swiper-slide">
+                    <a href="https://moodang-teacher.github.io/my-fingers/hi-1st/kimsehee/" target="_blank"
+                        rel="noopener noreferrer">
+                        <img src="./img/kimsehee.webp" alt="세희" />
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="https://moodang-teacher.github.io/my-fingers/hi-1st/kimyeojin/" target="_blank"
+                        rel="noopener noreferrer">
+                        <img src="./img/kimyeojin.webp" alt="여진" />
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="https://moodang-teacher.github.io/my-fingers/hi-1st/leeyunhee/" target="_blank"
+                        rel="noopener noreferrer">
+                        <img src="./img/leeyunhee.webp" alt="윤희" />
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="https://moodang-teacher.github.io/my-fingers/hi-1st/parkhana/" target="_blank"
+                        rel="noopener noreferrer">
+                        <img src="./img/parkhana.webp" alt="하나" />
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="https://moodang-teacher.github.io/my-fingers/hi-1st/parkinjung/" target="_blank"
+                        rel="noopener noreferrer">
+                        <img src="./img/parkinjung.webp" alt="인정" />
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="https://moodang-teacher.github.io/my-fingers/hi-1st/parkyoungmin/" target="_blank"
+                        rel="noopener noreferrer">
+                        <img src="./img/parkyoungmin.webp" alt="영민" />
+                    </a>
+                </div>
+                <div class="swiper-slide">
+                    <a href="https://moodang-teacher.github.io/my-fingers/hi-1st/seoseongeun/" target="_blank"
+                        rel="noopener noreferrer">
+                        <img src="./img/seoseongeun.webp" alt="성은" />
+                    </a>
                 </div>
             </div>
         </div>
-    </body>
+
+        <div class="swiper name-slider">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                    <p>kimkiyoung</p>
+                </div>
+                <div class="swiper-slide">
+                    <p>kimsehee</p>
+                </div>
+                <div class="swiper-slide">
+                    <p>kimyeojin</p>
+                </div>
+                <div class="swiper-slide">
+                    <p>leeyunhee</p>
+                </div>
+                <div class="swiper-slide">
+                    <p>parkhana</p>
+                </div>
+                <div class="swiper-slide">
+                    <p>parkinjung</p>
+                </div>
+                <div class="swiper-slide">
+                    <p>parkyoungmin</p>
+                </div>
+                <div class="swiper-slide">
+                    <p>seoseongeun</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
 </html>
